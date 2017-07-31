@@ -13,11 +13,11 @@ public class BookApplication {
              boolean toCreate=true;
              String selContinue;               
              String bookTitle;
-             String bookAuthor;
-             String bookCat;
-             String bookDescr;
+             String bookAuthor=null;
+             String bookCat=null;
+             String bookDescr=null;
              double bookPrice;
-             String sku;
+             String sku=null;
              int choice=1;
                     
              //Declare an array list variable and Initialize the array list  and type of array list that is class
@@ -26,7 +26,7 @@ public class BookApplication {
               
                
             	 		// declaration of class and instantiation of class object
-            	 		
+                        Book book=new Book();
             	 		BookDatabase bookDatabase=new BookDatabase();
                        
             	 		 // Set the values of attribute of Book class
@@ -48,7 +48,7 @@ public class BookApplication {
                          //Print the menu
                          String mainMenu = ("Select a choice from the menu: \n"
                                  + "1. Create a New Book Entry\n"
-                                 + "2. Review Book Enteries Data\n"
+                                 + "2. Search By Book SKU:\n"
                                  + "3. Search By Book Auothor Name:\n"
                                  + "4. Search By Book Categories:\n"
                                  + "5. Exit");   
@@ -60,24 +60,26 @@ public class BookApplication {
                              System.out.print("\nError! Your Choice Enter is wrong please try to enter the corect one that is 1,2,3,4 and 5!!!\");");
                              System.out.println(mainMenu);
                              choice=scan.nextInt();
+                             scan.nextLine();
                          }
                         
                           switch (choice){
                              case 1:                                      
                             	 bookDatabase.addBook();                          
                                  break;
-                             case 2:       
-                                
-                            	 System.out.println("Enter SKU of a Book to See:");	
-                            	 String skuFind=scan.nextLine();
-                 				 scan.nextLine();
-                 				 bookDatabase.searchBySku(bookList, skuFind);
+                             case 2:
+
+                            	 System.out.println("Enter SKU of a Book to See:");
+                                 sku=scan.nextLine();
+                                 book.setSKU(sku);
+
+                                 bookDatabase.searchBySku(bookList, sku);
                                  break;
                                 
                              case 3:
                                 
                                  System.out.println("Search Book By Book Author Name:");   
-                                 String authorFind=scan.next();
+                                 String authorFind=scan.nextLine();
                                  scan.nextLine();
                                  bookDatabase.searchByAuthor(bookList, authorFind);
                                  
@@ -85,7 +87,7 @@ public class BookApplication {
                                                     
                              case 4:                   
                                      System.out.println("Search Book By Book Categories:");   
-                                     String catagFind=scan.next();
+                                     String catagFind=scan.nextLine();
                                      scan.nextLine();
                                      bookDatabase.searchByCategories(bookList, catagFind);
                                      break;   

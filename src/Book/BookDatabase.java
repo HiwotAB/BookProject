@@ -27,8 +27,6 @@ public class BookDatabase {
 		  
 		  public ArrayList<Book> searchByAuthor(ArrayList<Book> bookList,String author)
 		    {
-			  author=scan.next();
-              scan.nextLine();
 			  for(Book data:bookList){
                   if(data.getBookAuthor() != null && data.getBookAuthor().contains(author)){
                       System.out.println("SKU: "+data.getSKU());                       
@@ -48,21 +46,14 @@ public class BookDatabase {
               }
 		        return new ArrayList<Book>();
 		    }
-		  public ArrayList<Book> searchBySku(ArrayList<Book> bookList,String skuFind)		  	 
+		  public ArrayList<Book> searchBySku(ArrayList<Book> bookList,String skuFind)
 		    {
-			  
-				skuFind=scan.nextLine();
-				scan.nextLine();
+
 				 
-				for(Book data:bookList) {				
+				for(Book data:bookList) {
 					
 					if(data.getSKU() != null && data.getSKU().equalsIgnoreCase(skuFind)){
-						System.out.println("Inside If");	
-					System.out.println("SKU: "+data.getSKU());						
-					System.out.println("Book Title: "+data.getBookTitle());
-					System.out.println("Book Author Name: "+data.getBookAuthor());
-					System.out.println("Book Description: "+data.getBookDescr());
-					System.out.println("Book Price: "+data.getBookPrice());
+                        return new ArrayList<Book>();
 					}
 					else
 					{
@@ -71,23 +62,16 @@ public class BookDatabase {
 					
 					
 				}
-               
-		        return new ArrayList<Book>();
+                return new ArrayList<Book>();
+
 		    }
 		  public ArrayList<Book> searchByCategories(ArrayList<Book> bookList,String catagFind)
 		    {
-			  catagFind=scan.next();
-              scan.nextLine();
 
               for(Book data:bookList){
                   if(data.getBookCategories() != null && data.getBookCategories().contains(catagFind)){
-                      System.out.println("SKU: "+data.getSKU());                       
-                      System.out.println("Book Title: "+data.getBookTitle());
-                      System.out.println("Book Author Name: "+data.getBookAuthor());
-                      System.out.println("Book Categories: "+data.getBookCategories());
-                      System.out.println("Book Description: "+data.getBookDescr());
-                      System.out.println("Book Price: "+data.getBookPrice());
 
+                      return new ArrayList<Book>();
                   }
                   else
                   {
@@ -110,7 +94,7 @@ public class BookDatabase {
 		    {
 			   
 			   do{ 
-				   Book bookToAdd=new Book();
+				    Book bookToAdd=new Book();
      			   	System.out.println("Enter Book SKU:");
                     sku=scan.nextLine();
                     bookToAdd.setSKU(sku);
