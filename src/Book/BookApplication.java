@@ -70,6 +70,7 @@ public class BookApplication {
                              case 2:
 
                             	 System.out.println("Enter SKU of a Book to See:");
+                            	 scan.next();
                                  sku=scan.nextLine();
                                  book.setSKU(sku);
 
